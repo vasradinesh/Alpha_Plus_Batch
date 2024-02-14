@@ -1,6 +1,3 @@
-package chapter_8;
-
-
 public class largestof3number {
     public static void main(String[] args) {
         int a = 2;

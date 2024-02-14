@@ -5,16 +5,18 @@ import java.util.*;
 public class practice7 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
         int i = 1;
         int sumofeven = 0;
         int sumofodd = 0;
+        System.out.println("enter number");
+        int n = sc.nextInt();
+        
         while(i<=n){
             if(i%2==0){
-                sumofeven = sumofeven + i;
+                sumofeven += i;
             }
             else{
-                sumofodd =sumofodd + i;
+                sumofodd += i;
             }
             i++;
         }
