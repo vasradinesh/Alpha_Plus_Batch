@@ -18,7 +18,7 @@ public class practice01 {
         for(i=1;i<=totrow;i++){
             for(j=1;j<=totcoulum;j++){
                 // cell (i,j)
-                if(i==1 || i==5 || j==1 || j==4){
+                if(i==1 || i==totrow || j==1 || j==totcoulum){
                     //boundary
                     System.out.print("*");
                 }
