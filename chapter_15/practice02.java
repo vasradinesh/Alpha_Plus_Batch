@@ -1,3 +1,6 @@
+
+// spiral matrix 
+
 public class practice02 {
 
     public static void printspiral_matrix(int matrix[][]){
