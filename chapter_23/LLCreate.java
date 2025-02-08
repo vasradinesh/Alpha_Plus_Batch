@@ -153,6 +153,31 @@ public class LLCreate {
         head = prew;
     }
 
+    public void deleteNthFromEnd(int n){
+        int sz=0;
+        Node tempp = head;
+
+        while (tempp!=null) {
+            tempp = tempp.next;
+            sz++;
+        }
+
+        if(n==sz){
+            head = head.next;
+            return;
+        }
+
+        int i = 1;
+        int iToFind = sz-n;
+        Node prew = head;
+        while (i<iToFind) {
+            prew = prew.next;
+            i++;
+        }
+        prew.next = prew.next.next;
+        return;
+    }
+
     public static void main(String[] args){
 
         LLCreate ll = new LLCreate();
@@ -169,6 +194,8 @@ public class LLCreate {
         ll.removelast(); 
         ll.print(); 
         ll.reverce();
+        ll.print(); 
+        ll.deleteNthFromEnd(3);
         ll.print(); 
 
         System.out.println(ll.searchkey(3));
