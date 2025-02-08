@@ -197,6 +197,9 @@ public class LLCreate {
         ll.print(); 
         ll.deleteNthFromEnd(3);
         ll.print(); 
+        ll.reverce();
+        ll.print(); 
+
 
         System.out.println(ll.searchkey(3));
         System.out.println(ll.size);
