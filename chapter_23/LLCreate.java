@@ -226,26 +226,88 @@ public class LLCreate {
         }
     }
 
+    public static Node merge(Node head1, Node head2){
+        Node mergedll = new Node(-1);
+        Node temp = mergedll;
+
+        while (head1!=null && head2!=null) {
+            if(head1.data<=head2.data){
+                temp.next = head1;
+                head1 = head1.next;
+                temp = temp.next;
+            }else{
+                temp.next = head2;
+                head2 = head2.next;
+                temp = temp.next;
+            }
+        }
+
+        while (head1!=null) {
+            temp.next = head1;
+            head1 = head1.next;
+            temp = temp.next;
+        }
+        while (head2!=null) {
+            temp.next = head2;
+            head2 = head2.next;
+            temp = temp.next;
+        }
+        return mergedll.next;
+
+    }
+
+    public static Node getmid(Node head){
+        Node slow = head;
+        Node fast= head.next;
+
+        while (fast!=null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow; //mid node 
+    }
+
+
+    public Node mergesort(Node head){
+        if(head==null ||head.next == null){
+            return head;
+        }
+
+        // find mid
+        Node mid = getmid(head);
+        // find right and left  and merge sort
+        Node righthead = mid.next;
+        mid.next = null;
+        Node newleft =  mergesort(head);
+        Node newright = mergesort(righthead);
+        // merge
+        
+        return merge(newleft,newright); 
+    }
+
     public static void main(String[] args){
 
-        head = new Node(1);
-        Node temp = new Node(2);
-        head.next = temp;
-        head.next.next = new Node(3);
-        head.next.next.next = temp ;
+        LLCreate ll = new LLCreate();
+        ll.addFirst(1);
+        ll.addFirst(2);
+        ll.addFirst(3);
+        ll.addFirst(4);
+        ll.print();
+        ll.head = ll.mergesort(ll.head);
+        ll.print();
+        // head = new Node(1);
+        // Node temp = new Node(2);
+        // head.next = temp;
+        // head.next.next = new Node(3);
+        // head.next.next.next = temp ;
 
-        System.out.println(iscycle());
-        removeCycle();
-        System.out.println(iscycle());
-
-
-        // LLCreate ll = new LLCreate();
+        // System.out.println(iscycle());
+        // removeCycle();
+        // System.out.println(iscycle());
+       
         // // ll.head = new Node(1);
         // // ll.head.next = new Node(2);
-        // ll.addFirst(2);
-        // ll.addFirst(1);
-        // ll.addlast(3);
-        // ll.addlast(4);
+       
         // ll.add(3, 0);
         // ll.add(4, 4);
         // ll.add(3, 7);
