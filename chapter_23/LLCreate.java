@@ -178,30 +178,52 @@ public class LLCreate {
         return;
     }
 
+    public static Boolean iscycle(){
+        Node slow = head;
+        Node fast = head;
+
+        while (fast!=null && fast.next!=null) {
+            slow = slow.next;  // +1
+            fast = fast.next.next; //+2
+
+            if (slow == fast) {
+                return true; //cycle exist
+            }
+        }
+        return false;
+    }
+
     public static void main(String[] args){
 
-        LLCreate ll = new LLCreate();
-        // ll.head = new Node(1);
-        // ll.head.next = new Node(2);
-        ll.addFirst(2);
-        ll.addFirst(1);
-        ll.addlast(3);
-        ll.addlast(4);
-        ll.add(3, 0);
-        ll.add(4, 4);
-        ll.add(3, 7);
-        ll.removefirst(); 
-        ll.removelast(); 
-        ll.print(); 
-        ll.reverce();
-        ll.print(); 
-        ll.deleteNthFromEnd(3);
-        ll.print(); 
-        ll.reverce();
-        ll.print(); 
+        head = new Node(1);
+        head.next = new Node(2);
+        head.next.next = new Node(3);
+        head.next.next.next = head ;
+
+        System.out.println(iscycle());
+
+        // LLCreate ll = new LLCreate();
+        // // ll.head = new Node(1);
+        // // ll.head.next = new Node(2);
+        // ll.addFirst(2);
+        // ll.addFirst(1);
+        // ll.addlast(3);
+        // ll.addlast(4);
+        // ll.add(3, 0);
+        // ll.add(4, 4);
+        // ll.add(3, 7);
+        // ll.removefirst(); 
+        // ll.removelast(); 
+        // ll.print(); 
+        // ll.reverce();
+        // ll.print(); 
+        // ll.deleteNthFromEnd(3);
+        // ll.print(); 
+        // ll.reverce();
+        // ll.print(); 
 
 
-        System.out.println(ll.searchkey(3));
-        System.out.println(ll.size);
+        // System.out.println(ll.searchkey(3));
+        // System.out.println(ll.size);
     }
 }
